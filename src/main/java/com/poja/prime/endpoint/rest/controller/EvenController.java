@@ -12,7 +12,24 @@ public class EvenController {
     @GetMapping("/even")
     public int ping() {
 
-        int n = (int) (Integer.MAX_VALUE * Math.random());
-        return n/2 == 0 ? n : n-1;
+        int nombreAleatoire;
+
+        do {
+            nombreAleatoire = (int) (Integer.MAX_VALUE * Math.random());
+        } while (!estNombrePremier(nombreAleatoire));
+
+        return  + nombreAleatoire;
+    }
+    // Méthode pour vérifier si un nombre est premier
+    public static boolean estNombrePremier(int nombre) {
+        if (nombre <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(nombre); i++) {
+            if (nombre % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
