@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @PojaGenerated
 @RestController
 @Value
-public class EvenController {
+public class PrimeController {
     @GetMapping("/even")
     public int ping() {
 
